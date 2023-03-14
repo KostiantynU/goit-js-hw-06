@@ -1,11 +1,13 @@
-// ---------- task 01
-const ulEl = document.querySelector('#categories');
-const liOfUl = ulEl.children;
+// ---------- task 01:01
+const liOfUl = document.querySelectorAll('#categories .item');
 console.log('Number of categories:', liOfUl.length);
-// А якщо треба порахувати, то:
+// А якщо чітко по умові, треба порахувати, то на один рядок більше:
 let countOfCategories = 0;
-const temp = Array.from(liOfUl).forEach(el => (countOfCategories += 1));
+liOfUl.forEach(() => (countOfCategories += 1));
 console.log('Number of categories:', countOfCategories);
-// ---------- task 02
-const liElItem = ulEl.childNodes;
-console.log(liElItem[1].textContent);
+// ---------- task 01:02
+const liElItem = document.querySelectorAll('.item');
+liElItem.forEach(el => {
+  console.log('Category:', el.firstElementChild.textContent);
+  console.log('Elements:', el.lastElementChild.children.length);
+});
