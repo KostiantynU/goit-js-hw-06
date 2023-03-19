@@ -8,8 +8,8 @@ const refs = {
   createBtnEl: document.querySelector('button[data-create]'),
   destoryBtnEl: document.querySelector('button[data-destroy]'),
   divParent: document.querySelector('#boxes'),
-  startWidth: 30,
-  startHeight: 30,
+  // startWidth: 30,
+  // startHeight: 30,
 };
 refs.createBtnEl.addEventListener('click', takeNumFromInput);
 function takeNumFromInput() {
@@ -21,17 +21,20 @@ function createBoxes(amount) {
   for (let i = 0; i <= amount; i += 1) {
     const divEl = document.createElement('div');
     divEl.style.backgroundColor = getRandomHexColor();
-    divEl.style.width = `${refs.startWidth}px`;
-    divEl.style.height = `${refs.startHeight}px`;
+    divEl.style.width = 30 + 10 * i + 'px';
+    divEl.style.height = 30 + 10 * i + 'px';
+    // divEl.style.width = `${refs.startWidth}px`;
+    // divEl.style.height = `${refs.startHeight}px`;
     collectDiv.push(divEl);
-    refs.startWidth += 10;
-    refs.startHeight += 10;
+    // refs.startWidth += 10;
+    // refs.startHeight += 10;
   }
   refs.divParent.append(...collectDiv);
 }
 refs.destoryBtnEl.addEventListener('click', destroyAll);
 function destroyAll() {
   refs.divParent.innerHTML = '';
-  refs.startWidth = 30;
-  refs.startHeight = 30;
+  refs.inputNumberEl.value = '';
+  // refs.startWidth = 30;
+  // refs.startHeight = 30;
 }
